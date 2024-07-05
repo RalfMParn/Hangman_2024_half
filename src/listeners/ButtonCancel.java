@@ -17,6 +17,7 @@ public class ButtonCancel implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        view.gameBoard.resetImageValue();
         view.showButtons();
         view.getGameTimer().stopTime();
         view.getGameTimer().setRunning(false);

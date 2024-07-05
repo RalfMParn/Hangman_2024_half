@@ -16,8 +16,8 @@ public class ComboboxChange implements ItemListener {
     @Override
     public void itemStateChanged(ItemEvent e) {
         // https://stackoverflow.com/questions/330590/why-is-itemstatechanged-on-jcombobox-is-called-twice-when-changed
-        if(e.getStateChange() == ItemEvent.SELECTED) { // Without this check, two choices will occur in a row
-            model.setSelectedCategory(e.getItem().toString()); // Set selected category for next new game
+        if(e.getStateChange() == ItemEvent.SELECTED) {
+            model.setSelectedCategory(e.getItem().toString());
             JOptionPane.showMessageDialog(null, e.getItem().toString()); // for testing
         }
     }

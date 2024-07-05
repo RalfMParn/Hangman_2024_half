@@ -11,6 +11,7 @@ import java.util.List;
 import java.util.Objects;
 
 public class Model {
+    public int wrongCounter = 0;
     private final String chooseCategory = "Kõik kategooriad";
     /**
      * See on vaikimisi andmebaasi fail kui käsurealt uut ei leotud. Andmebaasi tabelit nimed ja struktuurid peavad
@@ -59,7 +60,7 @@ public class Model {
             imageFiles.add(file.getAbsolutePath()); // Täispikk kausta tee
         }
         Collections.sort(imageFiles); // Sorteerida kasvavalt kasuta sisu
-       System.out.println(imageFiles);
+       // System.out.println(imageFiles); // TEST
     }
 
     /**

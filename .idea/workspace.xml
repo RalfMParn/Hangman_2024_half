@@ -10,21 +10,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c3a9a89e-df2f-41b6-935e-2b222c675b42" name="Changes" comment="Muudetud mudelit, README, Settings Database ja listud ComboboxChange.">
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/Hangman_2024_Student_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/controllers/Controller.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/listeners/ButtonCancel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/listeners/ButtonNew.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/listeners/ButtonLeaderboard.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/listeners/ButtonSend.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/MainApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/MainApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hangman_words_ee_test.db" beforeDir="false" afterPath="$PROJECT_DIR$/hangman_words_ee_test.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/helpers/GameTimer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/helpers/GameTimer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/listeners/ButtonCancel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/listeners/ButtonCancel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/listeners/ButtonNew.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/listeners/ButtonNew.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/listeners/ComboboxChange.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/listeners/ComboboxChange.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Database.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Model.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/View.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/View.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/panels/GameBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/panels/GameBoard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/panels/LeaderBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/panels/LeaderBoard.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/panels/Settings.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/panels/Settings.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -55,6 +54,9 @@
     &quot;accountId&quot;: &quot;ae3227ef-cd68-4eb9-9271-568b491ec1f3&quot;
   }
 }</component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 5
 }</component>
@@ -84,7 +86,7 @@
     &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;Errors&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -125,6 +127,16 @@
       <workItem from="1718173454563" duration="399000" />
       <workItem from="1718173874028" duration="23914000" />
       <workItem from="1718200277564" duration="1336000" />
+      <workItem from="1719417340608" duration="3895000" />
+      <workItem from="1719500241619" duration="1433000" />
+      <workItem from="1719582730105" duration="6508000" />
+      <workItem from="1719735415676" duration="3576000" />
+      <workItem from="1719935439079" duration="272000" />
+      <workItem from="1719937803786" duration="921000" />
+      <workItem from="1719974464107" duration="26050000" />
+      <workItem from="1720098955777" duration="5142000" />
+      <workItem from="1720114798231" duration="567000" />
+      <workItem from="1720197737491" duration="5027000" />
     </task>
     <task id="LOCAL−00001" summary="First Commit">
       <option name="closed" value="true" />

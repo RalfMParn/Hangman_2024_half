@@ -29,7 +29,7 @@ public class View extends JFrame {
     /**
      * Vaheleht (TAB) Mängulaud
      */
-    private GameBoard gameBoard;
+    public GameBoard gameBoard;
     /**
      * Vaheleht (TAB) Edetabel
      */
@@ -39,7 +39,6 @@ public class View extends JFrame {
      */
     private JTabbedPane tabbedPane;
 
-    // TODO RealTimer ka
     private GameTimer gameTimer;
     private RealTimer realTimer;
     /**
@@ -51,8 +50,7 @@ public class View extends JFrame {
 
         setTitle("Poomismäng 2024 õpilased"); // JFrame titelriba tekst
         setPreferredSize(new Dimension(500, 250));
-        // TODO arenduse lõpus keela akna suurendamine
-        // setResizable(false);
+        setResizable(false);
         getContentPane().setBackground(new Color(250,210,205)); // JFrame taustavärv (rõõsa)
 
         // Loome kolm vahelehte (JPanel)
@@ -79,9 +77,8 @@ public class View extends JFrame {
         tabbedPane.addTab("Edetabel", leaderBoard); // Vaheleht Mängulaud paneeliga gameBoard
 
 
-        // TODO arenduse lõpus mängulaua vahelehte klikkida ei saa
 
-        // tabbedPane.setEnabledAt(1, false); // Vahelehte mängulaud ei saa klikkida
+        tabbedPane.setEnabledAt(1, false); // Vahelehte mängulaud ei saa klikkida
     }
 
     /**
@@ -136,6 +133,7 @@ public class View extends JFrame {
     }
 
     public void updateScoresTable() {
+        model.getDtm().setRowCount(0);
         for(DataScore ds : model.getDataScores()) {
             String gameTime = ds.gameTime().format(DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm:ss"));
             String name = ds.playerName();
@@ -148,6 +146,11 @@ public class View extends JFrame {
         }
     }
 
+    public void setGameBoard(GameBoard gameBoard) {
+        this.gameBoard = gameBoard;
+
+    }
+
     /**
      * Muudab aja min on sekundites jukule mm:ss 90 sek on 01:30
      * @param seconds sekundite, täisarv
@@ -158,4 +161,34 @@ public class View extends JFrame {
         int sec = seconds % 60;
         return String.format("%02d:%02d", min, sec);
     }
+
+    private String playerNames;
+    public void askUserName() {
+    // Küsib mängija nimi input kastiga
+        String playerName = JOptionPane.showInputDialog(null, "Mis su nimi on?", "Võitja nimi", JOptionPane.PLAIN_MESSAGE);
+
+        // Vaatab kas ta pani nimi
+        if (!(playerName == null)) {
+            if (!(playerName.isEmpty())) {
+                // Paneb nimi "playerNames", et saaks väljaspoolt kätte
+                playerNames = playerName.trim();
+            } else {
+                // Saadab kui mangija sisestas nimi aga jättis tühuikuks
+                System.out.println("Mängija nimi on tühi, ei sisestanud info.");
+            }
+
+        } else {
+            // Saadab kui mangija vajutas katkesta nimesisestus aknas
+            System.out.println("Mängija katkestas nime sisestuse, ei sisestanud info.");
+        }
+    }
+
+     public String getPlayerName() {
+        return playerNames; // Getter et saaks mängija nimi väljaspool View
+    }
+
+    public void switchToLeaderBoardTab() {
+        tabbedPane.setSelectedIndex(2); // Muutab edetabelile
+    }
+
 }

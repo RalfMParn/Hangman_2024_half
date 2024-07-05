@@ -4,7 +4,7 @@ Käesolev projekt on loodud õpilastele mängu põhi funktsionaaluse lisamiseks.
 abiklassid ning meetodid. Kõik abiklassid pole ka kasutusele võetud vaid aja kokkuhoiu mõttes lisatud. Viimases tunnis
 lisame koos mõned mängu jaoks vajalikud funktsionaalsused ning mängu tegelik lõpetamine jääb õpilastele.
 
-# TODO Koos tehtavad funktsionaalsused 
+# Koos tehtavad funktsionaalsused 
 1. ~~Kategooriate lisamine rippmenüüsse Seadete vahelehel~~
 2. ~~Kategooria muutmisel muudetakse mudelis valitud kategooriat~~
 3. ~~Rakendust käivatades saab käsureal anda teise andmebaasi faili~~

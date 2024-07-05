@@ -3,10 +3,16 @@ package views.panels;
 import helpers.TextFieldLimit;
 import models.Model;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.util.Objects;
 
 public class GameBoard extends JPanel {
     /**
@@ -78,7 +84,7 @@ public class GameBoard extends JPanel {
      */
     private void createUIComponents(JPanel components) {
         // Esimene rida (mänguaeg)
-        lblGameTime = new JLabel("Siia tuleb mänguaeg", JLabel.CENTER);
+        lblGameTime = new JLabel("", JLabel.CENTER);
         gbc.gridx = 0;
         gbc.gridy = 0;
         gbc.gridwidth = 2; // Mänguaeg üle kahe lahtri keskele
@@ -105,11 +111,18 @@ public class GameBoard extends JPanel {
         };
         txtChar.setEnabled(false); // Vaikimisi lahtrisse kirjuta ei saa
         txtChar.setHorizontalAlignment(JTextField.CENTER); // Kirjuta lahtri keskele
-        // TODO siia rida, et tekstikasti saab ainult ühe tähe kirjutada
         txtChar.setDocument(new TextFieldLimit(1));
         gbc.gridx = 1;
         gbc.gridy = 1;
         components.add(txtChar, gbc);
+
+        txtChar.addActionListener(new ActionListener() { // et saaks enter khlafiga saada nuppu vajutada
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // Paneb saada nupp tööle enter khlafiga
+                btnSend.doClick();
+            }
+        });
 
         // Kolmas rida (Silt üle kahe veeru)
         lblError = new JLabel("Vigased tähed: ");
@@ -140,7 +153,6 @@ public class GameBoard extends JPanel {
      */
     private void createImagePlace(JPanel components) {
         lblImage = new JLabel();
-        // TODO pildid mällu lugemata, seega võllapuud ei näe vaid värviline pildikast. Asendada temporaryImage() õigega
         //ImageIcon imageIcon = new ImageIcon(temporaryImage()); // Sulgude osa täita õigesti ja pilt on maagiliselt näha
         ImageIcon imageIcon = new ImageIcon(model.getImageFiles().getLast()); // Sulgude osa täita õigesti ja pilt on maagiliselt näha
         lblImage.setIcon(imageIcon);
@@ -149,6 +161,7 @@ public class GameBoard extends JPanel {
         gbc.gridy = 0; // Esimene rida
         gbc.gridheight = 4; // Label üle 4 või 5 rea kõrge (vajab mängimist)
         components.add(lblImage, gbc);
+
 
     }
 
@@ -171,9 +184,10 @@ public class GameBoard extends JPanel {
      * @param pnlResult paneel kuhu näidatakse äraarvatavat sõna (T _ _ E M _ S)
      */
     private void createResultPlace(JPanel pnlResult) {
-        lblResult = new JLabel("T _ _ E M _ S");
+        lblResult = new JLabel(" ");
         lblResult.setFont(new Font("Courier New", Font.BOLD, 24)); // Kirjastiil ja suurus äraarvataval sõnal
         pnlResult.add(lblResult); // See paneel (pnlResult) on FlowLayout mitte GridBagLayout!
+
     }
 
     // Komponentide getterid
@@ -204,5 +218,45 @@ public class GameBoard extends JPanel {
 
     public JLabel getLblResult() {
         return lblResult;
+    }
+
+    public void resetImageValue() {
+        imageValue = 0;
+    }
+
+    public void setLblError(String error) { // et saaks vigased tähti lisada ja panelit tühjaks teha
+        String currentText = lblError.getText();
+        if (Objects.equals(error, "Reset")) { // Kui saadad "Reset" vigase tähe asemel, kustutab kõik ära algusese
+            lblError.setText("Vigased tähed: ");
+            lblError.setForeground(null);
+        } else if (!lblError.getText().substring(15).contains(error)) {
+            lblError.setText(currentText + " " + error);
+            lblError.setForeground(Color.RED);
+        }
+    }
+
+
+    public void setLblResultText(String text) {
+        if (lblResult != null) {
+            lblResult.setText(text);
+
+        }
+    }
+
+    public void resetTxtChar() {
+        if (txtChar != null) {
+            txtChar.setText("");
+        }
+    }
+
+    public int imageValue = 0;
+    public void setLblImage() { // kontrollib mis pilt näitab mängijale
+            if (imageValue < 12) {
+                ImageIcon nextImage = new ImageIcon(model.getImageFiles().get(imageValue++));
+                lblImage.setIcon(nextImage);
+            } else {
+                imageValue = 0;
+                lblImage.setIcon(new ImageIcon(model.getImageFiles().get(imageValue++)));
+            }
     }
 }
